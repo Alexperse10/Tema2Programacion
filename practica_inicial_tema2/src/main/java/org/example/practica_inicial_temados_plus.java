@@ -35,7 +35,7 @@ public class practica_inicial_temados_plus {
         System.out.println("                     "+multiplicando);
         System.out.println("x                    "+multiplicador);
 
-        System.out.println("-------------------------------");
+        System.out.println("------------------------------------------------------");
         String numero1 = Integer.toString(multiplicador); // el numero hay que pasarlo a String
 
         int signo=1;
@@ -70,7 +70,7 @@ public class practica_inicial_temados_plus {
         System.out.println("                   "+resultado2_1+"x");
         System.out.println("                  "+resultado3_1+"xx");
 
-        System.out.println("-------------------------------------------------------------------");
+        System.out.println("------------------------------------------------------------");
 
 
         System.out.println("                  "+resultado);
