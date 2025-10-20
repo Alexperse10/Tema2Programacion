@@ -27,7 +27,7 @@ public class Tema2_Numero_Suerte {
 // esta en la posicion 2 que lo he calculado con indexof, y la segunda con el lastIndexof en la posicion 5, digo
 // que si la primera barra es = 20 el formato es incorrecto, deberia ser dos y por ultimo la igualdad de ambas barras que no pueden
 // estar en la misma posicion, asi pues con este if puedo controlar que el formato de fecha sea el correcto.
-            if (primerabarra == 20 || segundabarra == 20 || primerabarra == segundabarra) {
+            if (primerabarra != 2 || segundabarra != 5 || primerabarra == segundabarra) {
                 System.out.println("formato incorrecto, debe ser (dd/mm/aaaa)");
 
             }else {
@@ -73,7 +73,7 @@ public class Tema2_Numero_Suerte {
             }
 
         }
-        while (dia_numerico < 1 || dia_numerico>31 || mes_numerico < 1 || mes_numerico>12 || año_numerico < 1) ;
+        while (dia_numerico < 1 || dia_numerico>31 || mes_numerico < 1 || mes_numerico>12 || año_numerico < 1 ) ;
 
     }
 
