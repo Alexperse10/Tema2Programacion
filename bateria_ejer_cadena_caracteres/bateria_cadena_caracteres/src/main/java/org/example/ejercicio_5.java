@@ -2,7 +2,7 @@ package org.example;
 
 import java.util.Scanner;
 
-public class ejercicio_4 {
+public class ejercicio_5 {
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
         System.out.println("introduce una frase");
@@ -10,6 +10,6 @@ public class ejercicio_4 {
         System.out.println("introduce una palabra");
         String palabra = sc.nextLine();
 
-        
+
     }
 }
