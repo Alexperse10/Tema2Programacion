@@ -24,11 +24,12 @@ public class Calculadora_Simple {
 
                 System.out.println("elige una opción");
                 String opcion = sc.next();
+                String opcion_mayusculas=opcion.toUpperCase();
                 if (!opcion.equalsIgnoreCase("R")) {
                     System.out.println("introduce un segundo operando");
                     operando2 = sc.nextInt();
                 }
-                switch (opcion) {
+                switch (opcion_mayusculas) {
                     case "+":
                         int sumar = operando1 + operando2;
                         System.out.println("el resultado de " + operando1 + "+" + operando2 + "=" + sumar);
@@ -37,7 +38,7 @@ public class Calculadora_Simple {
                         int restar = operando1 - operando2;
                         System.out.println("el resultado de " + operando1 + "-" + operando2 + "=" + restar);
                         break;
-                    case "x":
+                    case "X":
                         int multiplicar = operando1 * operando2;
                         System.out.println("el resultado de " + operando1 + "x" + operando2 + "=" + multiplicar);
                         break;
@@ -50,8 +51,12 @@ public class Calculadora_Simple {
                         }
                         break;
                     case "R":
-                        double raiz = Math.sqrt(operando1);
-                        System.out.println("el resultado de la raiz es: " + raiz);
+                        if (operando1<0){
+                            System.out.println("no se puede realizar la raiz cuadrada de un numero negativo");
+                        }else {
+                            double raiz = Math.sqrt(operando1);
+                            System.out.println("el resultado de la raiz es: " + raiz);
+                        }
                         break;
                     default:
                         System.out.println("la opcion no es correcta");
@@ -63,7 +68,7 @@ public class Calculadora_Simple {
                 System.out.println("ERROR: valores invalidos");
             }
             sc.nextLine();
-        }while (repetir=false);
+        }while (repetir == true);
     }
 }
 
