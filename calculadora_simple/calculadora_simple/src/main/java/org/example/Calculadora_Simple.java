@@ -8,11 +8,11 @@ public class Calculadora_Simple {
         boolean repetir = false;
         do {
             try {
-                int operando2 = 0;
+                double operando2 = 0;
                 repetir = false;
                 System.out.println("*** BIENVENIDO A LA CALCULADORA RAPIDA ***");
                 System.out.println("introduce operando: ");
-                int operando1 = sc.nextInt();
+                double operando1 = sc.nextDouble();
                 double numero = 0;
                 System.out.println("---------------------------------------------");
                 System.out.println("[+] -> sumar");
@@ -25,28 +25,28 @@ public class Calculadora_Simple {
                 System.out.println("elige una opción");
                 String opcion = sc.next();
                 String opcion_mayusculas=opcion.toUpperCase();
-                if (!opcion.equalsIgnoreCase("R")) {
+                if (!opcion_mayusculas.equals("R")) {
                     System.out.println("introduce un segundo operando");
-                    operando2 = sc.nextInt();
+                    operando2 = sc.nextDouble();
                 }
                 switch (opcion_mayusculas) {
                     case "+":
-                        int sumar = operando1 + operando2;
+                        double sumar = operando1 + operando2;
                         System.out.println("el resultado de " + operando1 + "+" + operando2 + "=" + sumar);
                         break;
                     case "-":
-                        int restar = operando1 - operando2;
+                        double restar = operando1 - operando2;
                         System.out.println("el resultado de " + operando1 + "-" + operando2 + "=" + restar);
                         break;
                     case "X":
-                        int multiplicar = operando1 * operando2;
+                        double multiplicar = operando1 * operando2;
                         System.out.println("el resultado de " + operando1 + "x" + operando2 + "=" + multiplicar);
                         break;
                     case "/":
                         if (operando2 == 0) {
                             System.out.println("No se puede dividir un numero entre cero");
                         } else {
-                            int dividir = operando1 / operando2;
+                            double dividir = operando1 / operando2;
                             System.out.println("el resultado de " + operando1 + "/" + operando2 + "=" + dividir);
                         }
                         break;
