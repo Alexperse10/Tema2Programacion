@@ -10,6 +10,6 @@ public class contador_palabras {
 
         int numero_frase = frase.length();
         String frase_sinespacios = frase.replace(" ","");
-        
+
     }
 }
