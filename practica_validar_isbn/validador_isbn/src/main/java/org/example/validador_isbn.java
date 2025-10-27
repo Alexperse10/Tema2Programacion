@@ -105,7 +105,6 @@ public class validador_isbn {
                 break;
 
             case "x":
-            case "X":
                 System.out.println("Saliendo del programa...");
                 break;
 
