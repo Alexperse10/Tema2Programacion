@@ -35,7 +35,7 @@ public class validador_isbn {
                     }else { // sino se introduce un valor x la cifra cogera el valor de c
                         cifra = Integer.parseInt(String.valueOf(c));
                         // aqui convierto ese caracter a un string y despues tengo que trnaformar ese string a un numero para poder multiplicarlo
-                }
+                    }
 
                     int posicion = 10 - i; // Se calcula la posicion empezando de mayor a menor
                     multiplicacion = cifra * posicion; // multipico cifra por posicion
@@ -48,7 +48,7 @@ public class validador_isbn {
                 if (suma % 11 ==0){  // si la suma total es divisible entre 11 es valido, se mustra el mensaje
                     System.out.println("el isbn es valido");
                 }else {
-                        System.out.println("el isbn es invalido"); // si no es divisible entre 11 es invalido
+                    System.out.println("el isbn es invalido"); // si no es divisible entre 11 es invalido
                 }
                 break;
 
@@ -113,7 +113,3 @@ public class validador_isbn {
         }
     }
 }
-
-
-
-
