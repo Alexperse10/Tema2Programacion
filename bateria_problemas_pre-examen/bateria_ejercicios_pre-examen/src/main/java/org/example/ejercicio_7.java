@@ -1,0 +1,11 @@
+package org.example;
+
+import java.util.Scanner;
+
+public class ejercicio_7 {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        System.out.println("introduce un numero");
+        int numero = sc.nextInt();
+    }
+}
