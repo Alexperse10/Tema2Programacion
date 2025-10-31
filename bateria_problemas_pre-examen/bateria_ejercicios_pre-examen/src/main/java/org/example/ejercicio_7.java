@@ -13,7 +13,7 @@ public class ejercicio_7 {
         char segundonumero = sin_comas.charAt(1);
         int primernumero_int = Integer.parseInt(String.valueOf(0));
         int segundonumero_int = Integer.parseInt(String.valueOf(1));
-        int sumaprimerasecuencia = primernumero_int + segundonumero_int; 
+        int sumaprimerasecuencia = primernumero_int + segundonumero_int;
         for (int i=0; i<numero; i++){
 
 

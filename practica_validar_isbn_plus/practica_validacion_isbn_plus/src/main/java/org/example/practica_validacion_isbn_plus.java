@@ -5,99 +5,87 @@ import java.util.Scanner;
 public class practica_validacion_isbn_plus {
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
-        int suma = 0; // aquí guardo el total de la acumulación de las multiplicaciones
-        int multiplicacion; // multiplico la posición por la cifra
+        int suma = 0; // aqui guardo el total de la acumulacion de las multiplicaciones
+        int multiplicacion; // multiplico la posicion por la cifra;
 
         String numero;
-        System.out.println("** VALIDADOR ISBN **");
+        System.out.println("** VALIDADOR ISBN **"); //imprimo menu con las opciones
         System.out.println("1-VALIDAR ISBN");
-        System.out.println("2-REPARAR ISBN");
+        System.out.println("2-REPARAR ISBN ");
         System.out.println("X-SALIR");
         String opcion = sc.nextLine();
 
-        switch (opcion) {
+        switch (opcion) {  // se eligen los bloques con el switch
             case "1":
-                System.out.println("Introduce ISBN");
+                System.out.println("introduce isbn"); // se introduce el numero isbn por teclado
                 numero = sc.nextLine();
-                numero = numero.trim();
-                int numero_longitud = numero.length();
-                if (numero_longitud != 10) {
-                    System.out.println("El ISBN es inválido");
-                    break;
+                int numero_longitud = numero.length(); // cuenta cantidad de caracteres que tiene el numero
+                if (numero_longitud != 10) { // si numero no tiene 10 caracteres es invalido
+                    System.out.println("el isbn es invalido");
+                    break; // sale del bloque
                 }
-                suma =0;
-                for (int i = 0; i < 10; i++) {
-                    char c = numero.charAt(i);
-                    int cifra;
+                for (int i = 0; i < 10; i++) { // se realiza un for para recorrer los numeros del 0 al 9
+                    char c = numero.charAt(i); // obtengo el caracter en la posicion i
+                    int cifra; // guardo el valor de ese caracter
 
-
-                    if (c == 'x') {
+                    if (c == 'x') { // si se introduce el valor x sera un 10
                         cifra = 10;
-                    } else {
+                    } else { // sino se introduce un valor x la cifra cogera el valor de c
                         cifra = Integer.parseInt(String.valueOf(c));
+                        // aqui convierto ese caracter a un string y despues tengo que transformar ese string a un numero para poder multiplicarlo
                     }
 
-                    int posicion = 10 - i;
-                    multiplicacion = cifra * posicion;
-                    suma = suma + multiplicacion;
-
-                    System.out.println(cifra + "*" + posicion + "=" + multiplicacion);
+                    int posicion = 10 - i; // Se calcula la posicion empezando de mayor a menor
+                    multiplicacion = cifra * posicion; // multiplico cifra por posicion
+                    suma = suma + multiplicacion; // se guarda el resultado en la variable suma que va incrementando
+                    System.out.println(cifra + "*" + posicion + "=" + multiplicacion); // va mostrando la multiplicacion
                 }
-
-                System.out.println("El resultado de la suma: " + suma);
-                if (suma % 11 == 0) {
-                    System.out.println("El ISBN es válido");
+                System.out.println("el resultado de la suma: " + suma); // muestra la suma total
+                if (suma % 11 == 0) {  // si la suma total es divisible entre 11 es valido, se muestra el mensaje
+                    System.out.println("el isbn es valido");
                 } else {
-                    System.out.println("El ISBN es inválido");
+                    System.out.println("el isbn es invalido"); // si no es divisible entre 11 es invalido
                 }
                 break;
 
             case "2":
-                System.out.println("Introduce el ISBN que quieres reparar:");
+                System.out.println("Introduce el isbn que quieres reparar:"); // aqui introduzco el isbn que quiero reparar
                 String numero_reparar = sc.nextLine();
-
-                int longitud_numero = numero_reparar.length();
-                if (longitud_numero != 10) {
-                    System.out.println("El número ISBN es inválido");
+                int longitud_numero = numero_reparar.length(); // se calcula la cantidad de caracteres que tiene el numero.
+                if (longitud_numero != 10) {  // Si el numero tiene un longitud diferente a 10 caracteres es invalido
+                    System.out.println("El numero ISBN es invalido");
                     break;
                 }
 
+                // Uso indexOf para encontrar el '?'
                 int posicioninterrogante = numero_reparar.indexOf('?');
-                if (posicioninterrogante == -1) {
+                if (posicioninterrogante == -1) { // si no hay '?'
                     System.out.println("No hay ningún signo '?' en el ISBN");
                     break;
                 }
 
-                for (int cifras_posibles = 0; cifras_posibles <= 10; cifras_posibles++) {
-                    char caracterreemplazar; // creo una variable para guardar el caracter que reemplaza el símbolo ?
+                for (int cifras_posibles = 0; cifras_posibles <= 10; cifras_posibles++) { // tengo que probar posibles cifras que pueda tener la cifra faltante
+                    int suma_prueba = 0; // variable donde realiza la suma de cada prueba
 
-                    if (cifras_posibles == 10) { // si la cifra es 10 el caracter es x
-                        caracterreemplazar = 'x';
-                    } else {
-                        caracterreemplazar = (char) ('0' + cifras_posibles);
-                    }
-
-                    // reemplazo el signo de interrogación por el carácter actual
-                    String numero_prueba = numero_reparar.replace('?', caracterreemplazar);
-
-                    int suma_prueba = 0;
-                    for (int i = 0; i < 10; i++) {
-                        char c = numero_prueba.charAt(i);
+                    for (int i = 0; i < 10; i++) { // aqui vuelve a recorrer todos los numeros
+                        char c = numero_reparar.charAt(i);
                         int cifra;
-                        if (c == 'x') {
+                        if (i == posicioninterrogante) { // si estoy en la posicion de ? se usa el valor cifras_posibles
+                            cifra = cifras_posibles;
+                        } else if (c == 'x') { // si es x es igual a 10
                             cifra = 10;
                         } else {
-                            cifra = Integer.parseInt(String.valueOf(c));
+                            cifra = Integer.parseInt(String.valueOf(c));  // el caracter se debe de pasar a string y luego a int
                         }
-                        int posicion = 10 - i;
-                        suma_prueba = suma_prueba + (cifra * posicion);
+                        int posicion = 10 - i;  // se calcula posicion empezando de mayor a menor
+                        suma_prueba = suma_prueba + (cifra * posicion); // se realiza la suma y multiplicacion
                     }
 
-                    if (suma_prueba % 11 == 0) {
+                    if (suma_prueba % 11 == 0) { // se verifica que sea divisible entre 11
                         if (cifras_posibles == 10) {
-                            System.out.println("El dígito faltante es: x");
+                            System.out.println("El digito faltante es: X");  // si la cifra_posible es 10 el caracter faltante es una x
                         } else {
-                            System.out.println("El dígito faltante es: " + cifras_posibles);
+                            System.out.println("El digito faltante es: " + cifras_posibles);
                         }
                         break;
                     }
